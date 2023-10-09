@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.courseRest.entities.Course;
 import com.courseRest.services.CourseService;
 
+@CrossOrigin(origins = "http://localhost:3000") //replace with frontend host
 @RestController
 public class MyController {
     
@@ -24,6 +26,7 @@ public class MyController {
     private CourseService  courseService;
     //@RequestMapping(value ="/books", method = RequestMethod.GET )
    //GET
+    @CrossOrigin(origins = "http://localhost:3000") //replace with frontend host
     @GetMapping("/courses")
      public ResponseEntity<List<Course>> getCourses(){
         List<Course> list =this.courseService.getAllCourses();
